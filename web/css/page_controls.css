@@ -1,0 +1,9 @@
+.navigation-group {
+  list-style: none;
+  text-align: right;
+}
+
+.navigators {
+  display: inline;
+  margin: 5px;
+}
