@@ -82,15 +82,15 @@ export default class Container extends Component {
     return (
       <ErrorBoundary>
         <App
-          name="Credit"
+          name="React template"
           theme="auto"
-          id="treeples.credit"
+          id="react.template"
           routes={routes(this.renderAppElements.bind(this))}
         >
           <Navbar>
             <div className="navbar-inner">
               <a href="/" className="link">
-                Credit
+                React template
               </a>
               {this.renderLoading()}
               {this.renderNotification()}

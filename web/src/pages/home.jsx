@@ -20,9 +20,6 @@ export const HomePage = () => {
                   Items
                 </a>
                 <br />
-                <a href="/invoices" className="link">
-                  Invoices
-                </a>
               </div>
             </div>
           </div>

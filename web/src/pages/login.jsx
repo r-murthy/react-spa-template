@@ -22,7 +22,7 @@ export class LoginPage extends Component {
         <div className="page-content login-screen-content auth-position">
           <div className="login-screen-title">
             <a href="/" className="link">
-              Credit
+              React template
             </a>
           </div>
           <Block strong>
