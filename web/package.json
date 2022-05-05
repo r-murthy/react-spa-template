@@ -6,7 +6,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "parcel watch index.html"
+    "dev": "parcel watch index.html",
+    "start": "parcel index.html"
   },
   "devDependencies": {
     "parcel": "^2.2.0"
