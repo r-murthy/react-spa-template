@@ -9,7 +9,7 @@ export class CustomerPage extends Component {
     super(props);
 
     this.customerId = this.props.f7route.params.customerId;
-    
+
     this.state = {};
 
     if (!this.customerId) {
@@ -18,7 +18,6 @@ export class CustomerPage extends Component {
           name: "",
           email: "",
           phone: "",
-          gstin: "",
         },
       };
     }
@@ -40,8 +39,7 @@ export class CustomerPage extends Component {
           this.customerId,
           customer.name,
           customer.email,
-          customer.phone,
-          customer.gstin
+          customer.phone
         )
       );
 
@@ -82,14 +80,6 @@ export class CustomerPage extends Component {
                 name="phone"
                 placeholder="Phone Number"
                 defaultValue={this.state.customer.phone}
-                required
-              ></ListInput>
-              <ListInput
-                label="GSTIN"
-                type="text"
-                name="gstin"
-                placeholder="GSTIN"
-                defaultValue={this.state.customer.gstin}
                 required
               ></ListInput>
             </List>

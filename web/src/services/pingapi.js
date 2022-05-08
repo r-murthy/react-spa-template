@@ -4,5 +4,5 @@ export async function pingApi() {
   const params = {
     method: "GET",
   };
-  return await http("/api/ping", params);
+  return await http("http://localhost:8002/api/ping", params);
 }

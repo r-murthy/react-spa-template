@@ -16,10 +16,6 @@ export const HomePage = () => {
                   Customers
                 </a>
                 <br />
-                <a href="/items" className="link">
-                  Items
-                </a>
-                <br />
               </div>
             </div>
           </div>

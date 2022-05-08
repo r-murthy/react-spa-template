@@ -1,8 +1,10 @@
 import { fetchFn as http } from "./api";
 
+const apiPath = "http://localhost:8002"
+
 export async function getCustomers(nameFilter, pageToken) {
   const res = await http(
-    `/api/customers?${nameFilter ? "nameFilter=" + nameFilter : ""}${
+    `${apiPath}/api/customers?${nameFilter ? "nameFilter=" + nameFilter : ""}${
       nameFilter && pageToken ? "&" : ""
     }${pageToken ? "page=" + pageToken : ""}`
   );
@@ -10,17 +12,16 @@ export async function getCustomers(nameFilter, pageToken) {
 }
 
 export async function getCustomer(id) {
-  const res = await http("/api/customers/" + id);
+  const res = await http(`${apiPath}/api/customers/${id}`);
   return await res.json();
 }
 
-export async function upsertCustomer(customerid, name, email, phone, gstin) {
+export async function upsertCustomer(customerid, name, email, phone) {
   const data = {
     customerid,
     name,
     email,
     phone,
-    gstin,
   };
 
   const params = {
@@ -28,6 +29,6 @@ export async function upsertCustomer(customerid, name, email, phone, gstin) {
     body: JSON.stringify(data),
   };
 
-  const res = await http("/api/customers", params);
+  const res = await http(`${apiPath}/api/customers`, params);
   return await res.json();
 }

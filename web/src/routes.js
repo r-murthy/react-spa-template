@@ -5,8 +5,6 @@ import { ListSelect } from "./pages/tests/list_select.jsx";
 import { SignupPage } from "./pages/signup.jsx";
 import { CustomerPage } from "./pages/customers/customer.jsx";
 import { ListCustomersPage } from "./pages/customers.jsx";
-import { ListItemsPage } from "./pages/items.jsx";
-import { ItemPage } from "./pages/items/item.jsx";
 import { TestPageControls } from "./pages/tests/page_controls.jsx";
 import { taskFn } from "./services/task.js";
 
@@ -76,24 +74,6 @@ export default (renderAppElements) => {
     {
       path: "/customers/:customerId",
       component: CustomerPage,
-      options: routeOpts,
-      beforeEnter: [beforeRoute],
-    },
-    {
-      path: "/items",
-      component: ListItemsPage,
-      options: routeOpts,
-      beforeEnter: [beforeRoute],
-    },
-    {
-      path: "/items/new",
-      component: ItemPage,
-      options: routeOpts,
-      beforeEnter: [beforeRoute],
-    },
-    {
-      path: "/items/:itemId",
-      component: ItemPage,
       options: routeOpts,
       beforeEnter: [beforeRoute],
     },
