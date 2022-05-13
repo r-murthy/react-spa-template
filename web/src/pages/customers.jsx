@@ -5,9 +5,7 @@ import { getCustomers } from "../services/custapi";
 
 export const ListCustomersPage = (props) => {
   const [searchText, setSearchText] = useState(
-    "query" in props.f7route.query
-      ? props.f7route.query["query"]
-      : ""
+    "query" in props.f7route.query ? props.f7route.query["query"] : ""
   );
   const initialPageToken =
     "page" in props.f7route.query ? parseInt(props.f7route.query["page"]) : 1;
@@ -21,7 +19,7 @@ export const ListCustomersPage = (props) => {
     try {
       const customers = await props.task(getCustomers(searchText, pageToken));
       setCustomersList(customers);
-    } catch { }
+    } catch {}
   }, []);
 
   const handleSearch = async (e) => {
@@ -32,7 +30,7 @@ export const ListCustomersPage = (props) => {
       const res = await props.task(getCustomers(searchText, page));
       setCustomersList(res);
       setPageToken(page);
-    } catch { }
+    } catch {}
   };
 
   return (

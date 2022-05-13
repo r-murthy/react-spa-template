@@ -29,6 +29,6 @@ export async function upsertCustomer(customerid, name, email, phone) {
     body: JSON.stringify(data),
   };
 
-  const res = await http(`${apiPath}/api/customers`, params);
+  const res = await http(`${apiPath}/api/customer`, params);
   return await res.json();
 }

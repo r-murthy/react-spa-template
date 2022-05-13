@@ -11,7 +11,6 @@ export async function fetchFn(url, params) {
     const token = await getToken();
     params.headers = Object.assign(params.headers, { Authorization: token });
 
-    console.log(`fetching from url - ${url}`)
     const res = await fetch(url, params);
     if (res.status == 401) {
       window.location.href = "/login";
