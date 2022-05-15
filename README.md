@@ -10,6 +10,6 @@
 
 #### Run
 
-    npm start
+    (cd web && npm start)
 
     localhost:1234

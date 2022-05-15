@@ -1,3 +1,7 @@
+##### NOTE
+
+- Base URL - http://localhost:8002/
+
 # Create customer
 
 As a user
