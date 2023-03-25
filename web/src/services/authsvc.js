@@ -13,11 +13,11 @@ import {
 } from "firebase/auth";
 
 const config = {
-  apiKey: "AIzaSyCFE2UKkUlDpQRsge8tfEl66mRAYhsGKUY",
-  authDomain: "credit-bodi.firebaseapp.com",
-  projectId: "credit-bodi",
-  storageBucket: "credit-bodi.appspot.com",
-  appId: "1:501475336641:web:a26c5c0fffa001f2c48f40",
+  apiKey: "AIzaSyCESARCzXnqcS4p59948o1TcOH2LcHBzzQ",
+  authDomain: "template-app-go-react.firebaseapp.com",
+  projectId: "template-app-go-react",
+  storageBucket: "template-app-go-react.appspot.com",
+  appId: "1:25070304702:web:0b570f8a510a09fa398def",
 };
 
 const firebaseApp = initializeApp(config);
@@ -60,7 +60,7 @@ export const getUsername = async () => {
 };
 
 export const signUpWithEmail = (email, password) => {
-  return createUserWithEmailAndPassword(auth, email, password);
+  return createUserWithEmailAndPassword(auth, email, password)
 };
 
 export const updateUserProfile = async (user, displayName) => {

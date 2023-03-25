@@ -1,9 +1,10 @@
 import { createElement } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import Framework7 from "framework7";
 import Framework7React from "framework7-react";
 import Container from "./app.jsx";
 
 Framework7.use(Framework7React);
 
-ReactDOM.render(createElement(Container), document.getElementById("app"));
+const root = createRoot(document.getElementById("app"));
+root.render(createElement(Container));

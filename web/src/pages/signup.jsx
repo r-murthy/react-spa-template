@@ -87,11 +87,11 @@ export class SignupPage extends Component {
       const userCredential = await signUpWithEmail(
         this.state.email,
         this.state.password
-      );
+        );
       await updateUserProfile(userCredential.user, this.state.name);
       this.reNavigate();
     } catch (err) {
-      this.props.renderAppElements({ notification: error.message });
+      this.props.renderAppElements({ notification: err.message });
     }
   }
 }
