@@ -67,7 +67,7 @@ export class SignupPage extends Component {
               </Button>
             </form>
             <Block>
-              <Button fill onClick={signInWithGoogle.bind(this)}>
+              <Button fill onClick={this.onSignupWithGoogleClicked.bind(this)}>
                 Sign in with Google
               </Button>
             </Block>
@@ -80,9 +80,23 @@ export class SignupPage extends Component {
   reNavigate() {
     window.location.href = "/";
   }
+  
+  async onSignupWithGoogleClicked(e) {
+    e.preventDefault();
+    try {
+      await signInWithGoogle();
+      this.reNavigate();
+    } catch (err) {
+      this.props.renderAppElements({ notification: err.message });
+    }
+  }
 
   async onSignupWithEmailClicked(e) {
     e.preventDefault();
+    if (!this.state.name) {
+      this.props.renderAppElements({ notification: "please enter user name!" });
+      return;
+    }
     try {
       const userCredential = await signUpWithEmail(
         this.state.email,

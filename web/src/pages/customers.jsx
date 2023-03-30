@@ -10,16 +10,20 @@ export const ListCustomersPage = (props) => {
   const initialPageToken =
     "page" in props.f7route.query ? parseInt(props.f7route.query["page"]) : 1;
   const [pageToken, setPageToken] = useState(initialPageToken);
-  const [customersListResponse, setCustomersList] = useState({
+  const [customersList, setCustomersList] = useState({
     customers: [],
     totalSize: 0,
   });
 
-  useEffect(async () => {
-    try {
-      const customers = await props.task(getCustomers(searchText, pageToken));
-      setCustomersList(customers);
-    } catch {}
+  useEffect(() => {
+    const loadCustomers = async () => {
+      try {
+        const customers = await props.task(getCustomers(searchText, pageToken));
+        setCustomersList(customers);
+      } catch { }
+    }
+
+    loadCustomers();
   }, []);
 
   const handleSearch = async (e) => {
@@ -30,7 +34,7 @@ export const ListCustomersPage = (props) => {
       const res = await props.task(getCustomers(searchText, page));
       setCustomersList(res);
       setPageToken(page);
-    } catch {}
+    } catch { }
   };
 
   return (
@@ -54,7 +58,7 @@ export const ListCustomersPage = (props) => {
             </li>
             <li>
               <List>
-                {customersListResponse.customers.map((cust) => (
+                {customersList.customers.map((cust) => (
                   <ListItem
                     key={cust.customerid}
                     title={cust.name}
@@ -68,7 +72,7 @@ export const ListCustomersPage = (props) => {
                 path="customers"
                 filter={searchText}
                 currentPage={pageToken}
-                nextPage={customersListResponse.nextpagetoken}
+                nextPage={customersList.nextpagetoken}
               />
             </li>
           </ul>
